@@ -18,22 +18,17 @@ public class Game_Systems_Manager : MonoBehaviour {
     // Used to handle the User Interface and interaction with it
     private Game_Systems_UI system_UI;
 
-    // Used to handle player input and influence associated Player Character
-    private Game_Systems_Player system_player;
-
     // Used to handle agents ( Non-player agents, smart objects, etc. ), which influence associated Agent Characters
     private Game_Systems_AgentHandler system_agentHandler;
 
-    //----------------------------------------------------------------------------------------------------//
-    // Delegates: UI //
+    // Used to handle player input and influence associated Player Character
+    private Game_Systems_Player system_player;
 
- 
-
-    //----------------------------------------------------------------------------------------------------//
-    // Delegates: Player //
 
     //----------------------------------------------------------------------------------------------------//
-    // Delegates: Agent Handler //
+    // Event Handling: Game_Systems_UI //
+
+
 
     //----------------------------------------------------------------------------------------------------//
     // System Prep //
@@ -42,8 +37,8 @@ public class Game_Systems_Manager : MonoBehaviour {
     void GetSystems ( ) {
         system_mapGenerator = this.GetComponent<Game_Systems_MapGenerator>( );
         system_UI = this.GetComponent<Game_Systems_UI>( );
-        system_player = this.GetComponent<Game_Systems_Player>( );
         system_agentHandler = this.GetComponent<Game_Systems_AgentHandler>( );
+        system_player = this.GetComponent<Game_Systems_Player>( );
     }
 
     private void Awake ( ) {

@@ -5,14 +5,23 @@
 /// 
 /// </summary>
 
+using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Game_Systems_UI : MonoBehaviour {
 
-    private Game_Systems_Manager systems_manager = null;
+    // UI Document attached to this Object
+    private UIDocument uiDocument = null;
 
-    void SetSystemManager ( ref Game_Systems_Manager ref_systems_manager ) {
-        systems_manager = ref_systems_manager;
+    public event Action action_buttonTest;
+
+    void ButtonTest ( ) {
+        action_buttonTest?.Invoke( );
+    }
+
+    private void Awake ( ) {
+        uiDocument = this.GetComponent<UIDocument>( );
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

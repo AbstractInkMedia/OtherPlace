@@ -15,15 +15,26 @@
 			the Game Systems Manager.
 		• Similarly responsible for deconstructing the game environment when called
 			by the Game Systems Manager.
-	
+
+	Game Systems Agent Handler:
+		• Responsible for handling Agents and making calls to Game Systems Manager
+			via Events.
+		• Runs before Game Systems Player, so that agents will react to the
+			Player Character's current state, giving the Player a 1-frame
+			advantage. Essentially, the Agents react to the Player,
+			rather than the Player reacting to the Agents.
+
 	Game Systems Player:
 		• Responsible for handling Player input, some of which will be used to
 			manipulate the associated Game Character Player, and others which will
 			call Game Systems Manager via Events.
-			
-	Game Systems Agent Handler:
-		• Responsible for handling Agents and making calls to Game Systems Manager
-			via Events.
+		• As above, runs after Game Systems Agent Handler so that the Agents
+			react to the Player. For example, if the Player Character moves,
+			the Agent will have 1-frame where they still consider the initial
+			position the Player Character was standing in; if the Player Character
+			were to instead move before before the Agent Handler, then the
+			Agents would instantly react.
+
 
 
 	[ Agents ]
