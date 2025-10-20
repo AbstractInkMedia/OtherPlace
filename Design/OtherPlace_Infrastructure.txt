@@ -1,0 +1,42 @@
+
+--------------------
+	Infrastructure
+--------------------
+
+	[ Game Systems ]
+	
+	Game Systems Manager:
+		• Responsible for calling all other Game Systems in the proper order.
+		• Subscribes to events in other systems so that other systems are not
+			directly attached to certain processes, i.e. pausing.
+	
+	Game Systems Map Generator:
+		• Responsible for generating the game environment when called by
+			the Game Systems Manager.
+		• Similarly responsible for deconstructing the game environment when called
+			by the Game Systems Manager.
+	
+	Game Systems Player:
+		• Responsible for handling Player input, some of which will be used to
+			manipulate the associated Game Character Player, and others which will
+			call Game Systems Manager via Events.
+			
+	Game Systems Agent Handler:
+		• Responsible for handling Agents and making calls to Game Systems Manager
+			via Events.
+
+
+	[ Agents ]
+
+	Agent:
+		• Base Class used by all other Agents.
+	
+	Agent Character:
+		• Inherits from Agent, with additional features for influencing an
+			in game Character.
+
+
+	[ Game Characters ]
+	
+	Game Character Player:
+		• Represents the Player, and 
