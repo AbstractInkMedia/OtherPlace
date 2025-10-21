@@ -7,8 +7,16 @@
 	
 	Game Systems Manager:
 		• Responsible for calling all other Game Systems in the proper order.
-		• Subscribes to events in other systems so that other systems are not
-			directly attached to certain processes, i.e. pausing.
+		• Influences Game Systems State, which is called by other systems to request
+			changes to the Game State. Only Game Systems Manager is allowed
+			to tell the Game Systems State to change over to the next state.
+		• On a new frame, Game Systems Manager takes in the current Game State
+			and acts accordingly.
+	
+	Game Systems State:
+		• Called by other systems to request changes to the current game state.
+		• On a new frame, Game Systems Manager tells the Game Systems State to
+			update based on the last frame's events.
 	
 	Game Systems Map Generator:
 		• Responsible for generating the game environment when called by
@@ -44,7 +52,7 @@
 	
 	Agent Character:
 		• Inherits from Agent, with additional features for influencing an
-			in game Character.
+			in-game Character.
 
 
 	[ Game Characters ]

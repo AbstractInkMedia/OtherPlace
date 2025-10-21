@@ -1,5 +1,3 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/OtherPlace/Game_Systems/Game_Systems_UI/Game_UI_StyleSheet.uss?fileID=7433441132597879392&amp;guid=1ebe179734b688944aef24c60d5edfab&amp;type=3#Game_UI_StyleSheet" />
-    <ui:GroupBox name="group_mainMenu" style="height: 456px;" />
-    <ui:GroupBox name="group_play" />
 </ui:UXML>
