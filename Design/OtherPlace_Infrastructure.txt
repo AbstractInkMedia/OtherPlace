@@ -6,17 +6,17 @@
 	[ Game Systems ]
 	
 	Game Systems Manager:
+		• Functions as primary system for Game State handling.
 		• Responsible for calling all other Game Systems in the proper order.
-		• Influences Game Systems State, which is called by other systems to request
-			changes to the Game State. Only Game Systems Manager is allowed
-			to tell the Game Systems State to change over to the next state.
-		• On a new frame, Game Systems Manager takes in the current Game State
+		• Influences Game Systems Flags, which is called by other systems to request
+			changes to the Game State.
+		• On a new frame, Game Systems Manager takes in the current Game Systems Flags
 			and acts accordingly.
 	
-	Game Systems State:
+	Game Systems Flags:
 		• Called by other systems to request changes to the current game state.
-		• On a new frame, Game Systems Manager tells the Game Systems State to
-			update based on the last frame's events.
+		• On a new frame, Game Systems Manager takes in information from 
+			Game Systems Flags and acts accordingly.
 	
 	Game Systems Map Generator:
 		• Responsible for generating the game environment when called by
