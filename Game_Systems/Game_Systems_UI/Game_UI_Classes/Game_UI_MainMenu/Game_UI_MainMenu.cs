@@ -11,6 +11,10 @@ public class Game_UI_MainMenu : Game_UI_Abstract {
 
     }
 
+    public override void DeconstructUI ( ) {
+ 
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start ( ) {
 

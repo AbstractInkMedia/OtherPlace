@@ -9,4 +9,6 @@ public abstract class Game_UI_Abstract {
     }
 
     public abstract void BuildUI ( );
+
+    public abstract void DeconstructUI ( );
 }

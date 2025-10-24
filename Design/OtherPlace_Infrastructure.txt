@@ -3,11 +3,32 @@
 	Infrastructure
 --------------------
 
+	[ General Structure ]
+
+	• Game Systems provide the means for Game States to change the UI,
+		Map, (Broad) Agent Behavior, etc.
+	
+	• Game States provide logic and events relevant to that State.
+		Ex: Game State MapGeneration creates a Map by interacting with
+		Game Systems MapGenerator, but doesn't do anything to remove the map
+		once the state ends.
+	
+	• Game States do not communicate with each other. If a Game State must
+		transition to another, the Game State will inform the Game Systems Manager,
+		which will then make the appropriate calls to end the current state,
+		and begin the next.
+
+
+	[ Game State ]
+	
+	Game State MainMenu:
+		• As the name, prepares the Main Menu and sets up transition to
+			the next state based on user interaction with on-screen options.
+
 	[ Game Systems ]
 	
 	Game Systems Manager:
 		• Functions as primary system for Game State handling.
-		• Responsible for calling all other Game Systems in the proper order.
 		• Influences Game Systems Flags, which is called by other systems to request
 			changes to the Game State.
 		• On a new frame, Game Systems Manager takes in the current Game Systems Flags
