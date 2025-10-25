@@ -12,15 +12,6 @@ public class Game_Systems_Manager : MonoBehaviour {
     // The current Game State
     private Game_State_Abstract currentGameState;
 
-    private void EnterGameState () {
-        currentGameState.Enter( );
-    }
-
-    private void ExitGameState ( ) {
-        currentGameState.Exit( );
-    }
-
-
 
 
     // Prepare the first Game State, in this case Main Menu
@@ -28,8 +19,14 @@ public class Game_Systems_Manager : MonoBehaviour {
         currentGameState = this.GetComponentInChildren<Game_State_MainMenu>( );
     }
 
+    private void Start ( ) {
+        currentGameState.Enter( );
+    }
+
     // Update is called once per frame
     void Update ( ) {
+
+        currentGameState.UpdateState( );
 
         // Check to see if the game state should transition
         Game_State_Abstract nextState = currentGameState.GetNextState();
@@ -37,8 +34,13 @@ public class Game_Systems_Manager : MonoBehaviour {
         if( nextState != null ) {
 
             // close out the current game state
+            currentGameState.Exit( );
+
+            // switch states
+            currentGameState = nextState;
 
             // set up the next game state
+            currentGameState.Enter( );
 
         }
     }

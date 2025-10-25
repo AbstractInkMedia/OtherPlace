@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 659557868}
   - component: {fileID: 659557869}
   - component: {fileID: 659557870}
+  - component: {fileID: 659557871}
   m_Layer: 0
   m_Name: Game_Systems
   m_TagString: Untagged
@@ -364,6 +365,18 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &659557871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659557863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a5e86de67af1640af7922be841c2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game_Systems_UI
 --- !u!1 &870018688
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +513,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 908631233}
+  - component: {fileID: 908631236}
+  - component: {fileID: 908631235}
+  - component: {fileID: 908631234}
   m_Layer: 0
   m_Name: Game_States
   m_TagString: Untagged
@@ -522,6 +538,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 659557864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &908631234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908631232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74286b8dbdcb1bf40a15481a97b1a962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game_State_Play
+--- !u!114 &908631235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908631232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9996b6dd32fd946878cff44de1e1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game_State_MapGeneration
+--- !u!114 &908631236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908631232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c6cf9030b558c4cbad94c5d44f800f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game_State_MainMenu
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

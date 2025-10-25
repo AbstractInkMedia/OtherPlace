@@ -10,13 +10,13 @@ using UnityEngine;
 
 public abstract class Game_State_Abstract : MonoBehaviour {
 
-    private Game_Systems_MapGenerator system_mapGenerator; // Used to generate and destroy the map
-    private Game_Systems_UI system_UI; // Used to handle the User Interface and interaction with it
-    private Game_Systems_AgentHandler system_agentHandler; // Used to handle agents ( Non-player agents, smart objects, etc. )
-    private Game_Systems_Player system_player; // Used to handle player input and influence associated Player Character
+    protected Game_Systems_MapGenerator system_mapGenerator; // Used to generate and destroy the map
+    protected Game_Systems_UI system_UI; // Used to handle the User Interface and interaction with it
+    protected Game_Systems_AgentHandler system_agentHandler; // Used to handle agents ( Non-player agents, smart objects, etc. )
+    protected Game_Systems_Player system_player; // Used to handle player input and influence associated Player Character
 
     // The set of one or more Game States that can be transitioned to
-    protected HashSet<Game_State_Abstract> transitionSet = new HashSet< Game_State_Abstract>();
+    protected Dictionary<string, Game_State_Abstract> transitionStates;
 
     // The next state, which will be transitioned to when it is no longer null
     private Game_State_Abstract nextState = null;
@@ -25,7 +25,7 @@ public abstract class Game_State_Abstract : MonoBehaviour {
     /// Called by the Game State to prepare the set of any Game States it can transition to,
     /// which should include 
     /// </summary>
-    protected abstract void PrepareTransitionSet ( );
+    protected abstract void PrepareTransitionStates ( );
 
     /// <summary>
     /// Called by the Game State to inform the Game_Systems_Maanger to change to the specified state
@@ -103,6 +103,7 @@ public abstract class Game_State_Abstract : MonoBehaviour {
 
 
     private void Awake ( ) {
-        PrepareTransitionSet( );
+        transitionStates = new Dictionary<string , Game_State_Abstract>( );
+        PrepareTransitionStates( );
     }
 }
