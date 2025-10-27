@@ -29,41 +29,32 @@
 	
 	Game Systems Manager:
 		• Functions as primary system for Game State handling.
-		• Influences Game Systems Flags, which is called by other systems to request
-			changes to the Game State.
-		• On a new frame, Game Systems Manager takes in the current Game Systems Flags
-			and acts accordingly.
+		• Calls active State to Enter and Update State,
+			then checks if the State needs to transition to a new State,
+			at which point it will Exit the former and Enter the latter.
 	
-	Game Systems Flags:
-		• Called by other systems to request changes to the current game state.
-		• On a new frame, Game Systems Manager takes in information from 
-			Game Systems Flags and acts accordingly.
+	Game Systems Flags: // Depricated, no longer in-use
+		• Intended to be used by other Systems to create flags read in by
+			the Game Systems Manager. This was part of the old infrastructure
+			and is no longer of use.
 	
 	Game Systems Map Generator:
-		• Responsible for generating the game environment when called by
-			the Game Systems Manager.
-		• Similarly responsible for deconstructing the game environment when called
-			by the Game Systems Manager.
+		• Responsible for generating the game environment.
+		• Similarly responsible for deconstructing the game environment when called.
 
 	Game Systems Agent Handler:
-		• Responsible for handling Agents and making calls to Game Systems Manager
-			via Events.
-		• Runs before Game Systems Player, so that agents will react to the
-			Player Character's current state, giving the Player a 1-frame
-			advantage. Essentially, the Agents react to the Player,
-			rather than the Player reacting to the Agents.
+		• Responsible for handling Agents, which then influence Agent Characters.
+		• Note: It is ideal that the Agent Handler run before Game Systems Player,
+			so that agents will react to the Player Character's current state,
+			giving the Player a 1-frame advantage. At present, with the new
+			Infrastructure, there is no strict enforcement of this.
 
 	Game Systems Player:
-		• Responsible for handling Player input, some of which will be used to
-			manipulate the associated Game Character Player, and others which will
-			call Game Systems Manager via Events.
-		• As above, runs after Game Systems Agent Handler so that the Agents
-			react to the Player. For example, if the Player Character moves,
-			the Agent will have 1-frame where they still consider the initial
-			position the Player Character was standing in; if the Player Character
-			were to instead move before before the Agent Handler, then the
-			Agents would instantly react.
-
+		• Note: previously was responsible for handling input, but
+			with the new Game State based infrastructure, it will
+			have functions for specific Player Character behavior that will
+			be called by the current Game State.
+		• Influences Player Character
 
 
 	[ Agents ]
@@ -79,4 +70,7 @@
 	[ Game Characters ]
 	
 	Game Character Player:
-		• Represents the Player, and 
+		• Represents the Player, and is influenced by Game_Systems_Player.
+	
+	Seeker:
+		• Antagonist of the Other Place, inherits from Agent Character.
